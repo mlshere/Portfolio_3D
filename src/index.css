@@ -211,11 +211,11 @@
 }
 
 .cube {
-  width: 10rem;
-  height: 10rem;
+  width: 15rem;
+  height: 15rem;
   position: absolute;
-  top: 22rem;
-  left: 40%;
+  top: 25rem;
+  left: 35%;
   transform: rotateZ(45deg) rotateX(0deg) rotateY(0deg);
   transform-style: preserve-3d;
   animation: rotateCube 20s infinite linear;
