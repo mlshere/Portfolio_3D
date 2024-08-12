@@ -2,6 +2,7 @@ import React from 'react';
 
 
 const CubeComponent = () => {
+
   return (
     <div className="relative" style={{ perspective: '800px' }}>
       <div
