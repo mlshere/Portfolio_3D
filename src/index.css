@@ -33,12 +33,12 @@
   ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
 
-.violet-gradient {
-  background: #804dee;
-  background: linear-gradient(-90deg, #804dee 0%, rgba(60, 51, 80, 0) 100%);
+.orange-gradient {
+  background: #ee7c53;;
+  background: linear-gradient(-90deg, #ee7c53 0%, rgba(60, 51, 80, 0) 100%);
   background: -webkit-linear-gradient(
     -90deg,
-    #804dee 0%,
+    #ee7c53 0%,
     rgba(60, 51, 80, 0) 100%
   );
 }
@@ -201,4 +201,77 @@
       -1.8em 1.8em 0 0em rgba(255, 255, 255, 0.5),
       -2.6em 0em 0 0em rgba(255, 255, 255, 0.7), -1.8em -1.8em 0 0em #ffffff;
   }
+}
+
+
+/* Rotating cube */
+
+.logo {
+  perspective: 800px;
+}
+
+.cube {
+  width: 10rem;
+  height: 10rem;
+  position: absolute;
+  top: 22rem;
+  left: 40%;
+  transform: rotateZ(45deg) rotateX(0deg) rotateY(0deg);
+  transform-style: preserve-3d;
+  animation: rotateCube 20s infinite linear;
+  transition: transform 0.5s ease;
+  margin: 2rem;
+}
+
+.cube:hover {
+  animation-play-state: paused;
+}
+
+@keyframes rotateCube {
+  0% {
+    transform: rotateY(0deg) rotateZ(0deg);
+  }
+  100% {
+    transform: rotateY(360deg) rotateZ(360deg);
+  }
+}
+
+.cube .face {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  box-shadow: 0px 0px 10px 10px rgba(238, 124, 83, 0.64);
+}
+
+.face {
+  position: absolute;
+  padding: 6rem;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  transition: all 0.5s;
+  opacity: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.front {
+  transform: translateZ(2rem);
+}
+.back {
+  transform: translateZ(-2rem) rotateY(180deg);
+}
+.right {
+  transform: rotateY(90deg) translateZ(2rem);
+}
+.left {
+  transform: rotateY(-90deg) translateZ(2rem);
+}
+.top {
+  transform: rotateX(90deg) translateZ(2rem);
+}
+.bottom {
+  transform: rotateX(-90deg) translateZ(2rem);
 }
