@@ -1,68 +1,61 @@
 import React from 'react'
-import { services } from '../constants';
+import { VerticalTimeline, VerticalTimelineElement }  from 'react-vertical-timeline-component';
 import { motion } from 'framer-motion';
-import { Tilt } from 'react-tilt';
-import { fadeIn, textVariant } from '../utils/motion';
+
+
+import 'react-vertical-timeline-component/style.min.css';
+
 import { styles } from '../styles';
+import { experiences } from '../constants';
 import { SectionWrapper } from '../hoc';
+import { textVariant } from '../utils/motion';
 
-const ServiceCard = ({ index, title, description, icon }) => {
-  return (
-    <Tilt>
-    
-      <motion.div
-        variants={fadeIn("right", "spring", 0.5 * index, 0.75)}
-        className=""
-      >
-      <div
-        options={{
-          max: 45,
-          scale: 1,
-          speed: 450
-          }}
-        className="bg-black-gradient ">      
-
-        <div key={index} className="min-h-[250px] border-2 border-white p-4 bg-[#1e1e1e] rounded-lg">
-              <div className="flex items-center mb-4">
-                <div className="text-white">
-                  {icon}
-                </div>
-                <h4 className="text-white text-xl font-semibold">
-                  <span className="relative inline-block">
-                    {title}
-                    <span className="absolute bottom-0 left-0 w-full h-1 bg-[#ee7c53] rounded-full"></span>
-                  </span>
-                </h4>
-              </div>
-              <div className="flex-grow flex items-center justify-center">
-                <p className="text-white text-center">{description}</p>
-              </div>
-            </div>
+const ExperienceCard = ({ experience }) => (
+  <VerticalTimelineElement
+    contentStyle={{ background: '#070806', color: '#fff' }}
+    contentArrowStyle={{ borderRight: '7px solid  #232631' }}
+    date={experience.date}
+    iconStyle={{ background: experience.iconBg }}
+    icon={
+    <div className="flex justify-center items-center w-full h-full">
+      <img 
+        src={experience.icon}
+        alt={experience.title}
+        className="w-[60%] h-[60%] object-contain"
+      />
+    </div>
+    }
+    >
+      <div>
+        <h3 className='text-white text-[24px] font-bold'>{experience.title}</h3>
+        <p className="text-secondary text-[16px] font-semibold" style={{ margin: 0 }}>{experience.city}</p>
       </div>
-      </motion.div>
-
-    </Tilt>
-  )
-}
+      <ul className="mt-5 list-disc ml-5 space-y-2">
+        {experience.points.map((point, index) => (
+          <li key={`experience.point-${index}`} className="text-white-100 text-[14px] pl-1 tracking-wider">{point}</li>
+        ))}
+      </ul>
+      
+  </VerticalTimelineElement> 
+)
 
 const About = () => {
   return (
     <>
-    <section className="">
-        <motion.div>
-          <h2 className={styles.sectionHeadText}>My Expertise</h2>
-        </motion.div>
-        <div className="flex flex-col items-center justify-center w-full h-full px-8 py-12">
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10 mx-16">
-          {services.map((service, index) => (
-            <ServiceCard key={service.title} index={index} {...service} />
-          ))}
-        </div>
-      </div>
-    </section>
+      <motion.div variants={textVariant()}>
+        <p className={styles.sectionSubText}>A little about me</p>
+      <h2 className={styles.sectionHeadText}>My journey</h2>
+      </motion.div>
+    
+    <div className='mt-20 flex flex-col'>
+      <VerticalTimeline>
+        {experiences.map((experience, index) => (
+          <ExperienceCard key={index} experience={experience} />
+        ))}
+      </VerticalTimeline>
+    </div>
     </>
   )
 }
 
 export default SectionWrapper(About, "about")
-
