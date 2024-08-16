@@ -275,3 +275,17 @@
 .bottom {
   transform: rotateX(-90deg) translateZ(2rem);
 }
+
+
+/* Filter My Work */
+
+.filters {
+  margin: 20px;
+  display: flex;
+  align-items: center;
+}
+
+.filter-btn::before {
+  content: "//";
+  margin-right: .5rem;
+}
