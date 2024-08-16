@@ -15,10 +15,11 @@ import {
   git,
   figma,
   docker,
-  meta,
-  starbucks,
-  tesla,
-  shopify,
+  berlin,
+  code,
+  groningen,
+  hamburg,
+  madrid,
   carrent,
   jobit,
   tripguide,
@@ -126,59 +127,67 @@ const technologies = [
 ];
 
 const experiences = [
-  {
-    title: "React.js Developer",
-    city: "Starbucks",
-    icon: starbucks,
-    iconBg: "#383E56",
-    date: "March 2020 - April 2021",
+  { 
+    title: "University Studies & Internships", 
+    city_name: "Madrid", 
+    icon: madrid, 
+    iconBg: "#383E56",  
     points: [
-      "Developing and maintaining web applications using React.js and other related technologies.",
-      "Collaborating with cross-functional teams including designers, product managers, and other developers to create high-quality products.",
-      "Implementing responsive design and ensuring cross-browser compatibility.",
-      "Participating in code reviews and providing constructive feedback to other developers.",
-    ],
+      "Studied Media Studies and Communication.",
+      "Completed internships in radio as a moderator and producer.",
+      "Worked for a local TV station as a camera operator, managing digital archiving projects.",
+      "Worked as an English teacher while specializing in radio production and hosting cultural and musical shows in local radios."
+    ]
   },
-  {
-    title: "React Native Developer",
-    city: "Tesla",
-    icon: tesla,
-    iconBg: "#E6DEDD",
-    date: "Jan 2021 - Feb 2022",
+  { 
+    title: "Film History Specialization", 
+    city_name: "Groningen", 
+    icon: groningen, 
+    iconBg: "#E6DEDD", 
     points: [
-      "Developing and maintaining web applications using React.js and other related technologies.",
-      "Collaborating with cross-functional teams including designers, product managers, and other developers to create high-quality products.",
-      "Implementing responsive design and ensuring cross-browser compatibility.",
-      "Participating in code reviews and providing constructive feedback to other developers.",
-    ],
+      "Studied Film History at Rijksuniversiteit Groningen.",
+      "Participated in a project to catalog and digitize a valuable film and document collection from a donor.",
+      "Developed expertise in film preservation and media archiving."
+    ]
   },
-  {
-    title: "Web Developer",
-    city: "Shopify",
-    icon: shopify,
-    iconBg: "#383E56",
-    date: "Jan 2022 - Jan 2023",
+  { 
+    title: "Gastronomy Studies", 
+    city_name: "Hamburg", 
+    icon: hamburg, 
+    iconBg: "#383E56",  
     points: [
-      "Developing and maintaining web applications using React.js and other related technologies.",
-      "Collaborating with cross-functional teams including designers, product managers, and other developers to create high-quality products.",
-      "Implementing responsive design and ensuring cross-browser compatibility.",
-      "Participating in code reviews and providing constructive feedback to other developers.",
-    ],
+      "Studied Gastronomy at Hotel Le Meridiem.",
+      "Gained expertise in five-star hotel kitchen operations and team management.",
+      "Learned budget management and team leadership.",
+      "Led a team of chefs post-graduation and assisted other chefs with high-end cuisine."
+    ]
   },
-  {
-    title: "Full stack Developer",
-    city: "Meta",
-    icon: meta,
-    iconBg: "#E6DEDD",
-    date: "Jan 2023 - Present",
+  { 
+    title: "Transition to Web Development", 
+    city_name: "Berlin", 
+    icon: berlin, 
+    iconBg: "#E6DEDD",  
     points: [
-      "Developing and maintaining web applications using React.js and other related technologies.",
-      "Collaborating with cross-functional teams including designers, product managers, and other developers to create high-quality products.",
-      "Implementing responsive design and ensuring cross-browser compatibility.",
-      "Participating in code reviews and providing constructive feedback to other developers.",
-    ],
+      "Worked in several high-end hotels optimizing kitchen procedures.",
+      "Joined an art collective, contributing to kitchen design while transitioning to web development.",
+      "Began learning web development, bridging my gastronomic expertise with formal education."
+    ]
   },
+  { 
+    title: "The Next Step: Future in Web Development", 
+    city_name: "",
+    icon: code, 
+    iconBg: "#383E56", 
+    points: [
+      "Passionate about the knowledge gained in web development this year.",
+      "Excited for future growth in this new and exciting field.",
+      "Aspire to integrate creativity with technical skills to build innovative web applications.",
+      "Committed to continuous learning, particularly in front-end frameworks, UX/UI design, and modern web technologies.",
+      "Looking forward to collaborating with talented teams to develop user-centered solutions."
+    ]
+  }
 ];
+
 
 const testimonials = [
   {
@@ -228,6 +237,7 @@ const projects = [
     ],
     image: carrent,
     source_code_link: "https://github.com/",
+    category: ["web development", "all"],
   },
   {
     name: "Job IT",
@@ -249,6 +259,7 @@ const projects = [
     ],
     image: jobit,
     source_code_link: "https://github.com/",
+    category: ["web development", "all"],
   },
   {
     name: "Trip Guide",
@@ -270,7 +281,23 @@ const projects = [
     ],
     image: tripguide,
     source_code_link: "https://github.com/",
+    category: ["data analytics", "all"],
   },
 ];
 
-export { services, technologies, experiences, testimonials, projects };
+const filters = [
+  {
+    id: "all",
+    title: "All",
+  },
+  {
+    id: "web development",
+    title: "Web Development",
+  }, 
+  {
+  id: "data analytics",
+  title: "Data Analytics",
+  },
+]
+
+export { services, technologies, experiences, testimonials, projects, filters };
