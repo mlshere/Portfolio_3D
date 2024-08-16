@@ -26,7 +26,7 @@ export const textVariant = (delay) => {
       show: {
         x: 0,
         y: 0,
-        opacity: 1,
+        opacity: 2,
         transition: {
           type: type,
           delay: delay,
