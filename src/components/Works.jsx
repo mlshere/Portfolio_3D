@@ -11,7 +11,7 @@ import { Tilt } from 'react-tilt';
 
 const ProjectCard = ({ index, name, description, tags, image, source_code_link, }) => {
   return (
-    <motion.div variants={fadeIn("right", "spring", 0.5 * index, 0.75)}>
+    <motion.div variants={fadeIn("right", "spring", 0.5 * index, 0.75)} initia="hidden" animate="show">
       <Tilt
         options={{
           max: 45,
