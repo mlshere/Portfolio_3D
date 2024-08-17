@@ -19,7 +19,7 @@ const ProjectBox = ({ index }) => (
           <img 
             src={lobelokal} 
             alt="Lobe Lokal landing page"
-            className="max-w-full border-4 border-orange-500 shadow-lg rounded-lg"
+            className="max-w-full border-2 border-orange-500 shadow-lg rounded-lg"
           />
         <div className="absolute top-[-10px] left-[-10px] right-[-10px] bottom-[-10px] border-2 border-dashed border-orange-500/80 rounded-lg -z-10"></div>
         
