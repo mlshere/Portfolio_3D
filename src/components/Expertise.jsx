@@ -30,7 +30,7 @@ const ServiceCard = ({ index, title, description, icon }) => {
                 <h4 className="text-white text-xl font-semibold">
                   <span className="relative inline-block">
                     {title}
-                    <span className="absolute bottom-0 left-0 w-full h-1 bg-[#ee7c53] rounded-full"></span>
+                    <span className="absolute bottom-0 left-0 w-full h-1 bg-[#ac829e] rounded-full"></span>
                   </span>
                 </h4>
               </div>

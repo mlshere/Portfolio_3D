@@ -19,16 +19,16 @@ const ProjectBox = ({ index }) => (
           <img 
             src={lobelokal} 
             alt="Lobe Lokal landing page"
-            className="max-w-full border-2 border-orange-500 shadow-lg rounded-lg"
+            className="max-w-full border-2 border-[#ac829e] shadow-lg rounded-lg"
           />
-        <div className="absolute top-[-10px] left-[-10px] right-[-10px] bottom-[-10px] border-2 border-dashed border-orange-500/80 rounded-lg -z-10"></div>
+        <div className="absolute top-[-10px] left-[-10px] right-[-10px] bottom-[-10px] border-2 border-dashed border-[#ac829e] rounded-lg -z-10"></div>
         
         </div>
         <a
           href="https://lobeblock.de/"
           target="_blank"
           rel="noopener noreferrer"
-          className="mt-4 bg-orange-500 text-white text-lg px-8 py-4 rounded-md hover:bg-orange-600 transition ease-in-out"
+          className="mt-4 bg-[#ac829e] text-white text-lg px-8 py-4 rounded-md hover:bg-[#77506b] transition ease-in-out"
         >
           View Project
         </a>

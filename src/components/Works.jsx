@@ -16,7 +16,7 @@ const ProjectCard = ({ index, name, description, tags, image, source_code_link, 
         options={{
           max: 45,
           scale: 1,
-          speed: 450
+          speed: 350
         }}
         className="bg-black-gradient p-5 rounded-2xl sm:w-[360px] w-full border-2 border-secondary"
       >
