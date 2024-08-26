@@ -16,8 +16,7 @@ const Earth = () => {
         scale={2.5}
         position-y={0}
         rotation-y={0}
-        castShadow
-        receiveShadow
+        
       >
 
       </primitive>
@@ -27,7 +26,7 @@ const Earth = () => {
 
 const EarthCanvas = () => {
   return (
-    <Canvas 
+    <Canvas
       shadows
       frameLoop='demand'
       gl={{ preserveDrawingBuffer: true }}
@@ -46,6 +45,7 @@ const EarthCanvas = () => {
           minPolarAngle={Math.PI / 2}
         />
         <Earth />
+        <Preload all />
       </Suspense>
     </Canvas>
   )
