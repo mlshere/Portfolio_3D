@@ -6,7 +6,7 @@ import { slideIn } from '../utils/motion';
 
 const Hero = () => {
   return (
-    <section className="relative w-full h-screen mx-auto">
+    <section className="relative w-full h-screen mx-auto ">
       <div className="flex-col flex gap-10">
         <motion.div 
         variants={slideIn('left', 'tween', 0.2, 1)}
