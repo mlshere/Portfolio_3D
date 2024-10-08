@@ -6,6 +6,7 @@ import { navLinks } from '../constants';
 import { logo, menu, close } from '../assets';
 
 const Navbar = () => {
+  const [active, setActive] = useState(""); 
   return (
     <>
     <nav
@@ -24,8 +25,14 @@ const Navbar = () => {
           <p className="text-white text-[18px] font-bold cursor-pointer">Sherezade Maqueda</p>
         </Link>
         <ul className="list-none hidden sm:flex flex-row gap-10">
-          {navLinks.map((Link) => (
-            <li>
+          {navLinks.map((link) => (
+            <li
+            key={link.id}
+            className={`${
+              active === link.title ? "text-white" : "text-secondary"
+            } hover:text-white text-[18px] font-medium cursor-pointer`}
+            onClick={() => setActive(link.title)}
+          >
               <a href={`#${Link.id}`}>{Link.title}</a>
             </li>
           ))}
