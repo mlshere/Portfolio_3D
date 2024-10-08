@@ -7,6 +7,16 @@ import { styles } from '../styles';
 import { SectionWrapper } from '../hoc';
 
 const ServiceCard = ({ index, title, description, icon }) => {
+  const convertSvgProps = (props) => {
+    const converted = {};
+    Object.keys(props).forEach(key => {
+      if (key === 'stroke-linecap') converted.strokeLinecap = props[key];
+      else if (key === 'stroke-linejoin') converted.strokeLinejoin = props[key];
+      else converted[key] = props[key];
+    });
+    return converted;
+  };
+
   return (
     <Tilt>
     
@@ -25,7 +35,10 @@ const ServiceCard = ({ index, title, description, icon }) => {
         <div key={index} className="min-h-[250px] min-w-[200px] border-2 border-white p-4 bg-[#070806] rounded-lg">
               <div className="flex items-center mb-4">
                 <div className="text-white">
-                  {icon}
+                {React.isValidElement(icon) 
+                  ? React.cloneElement(icon, convertSvgProps(icon.props))
+                  : icon
+                }
                 </div>
                 <h4 className="text-white text-xl font-semibold">
                   <span className="relative inline-block">
