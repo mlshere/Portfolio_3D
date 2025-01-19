@@ -1,34 +1,41 @@
-import { useState } from 'react'
+import { useState } from "react";
 //import reactLogo from './assets/react.svg'
 
-import { BrowserRouter } from 'react-router-dom';
-import { Expertise, Contact, Project, Hero, Navbar, Works, StarsCanvas, About} from './components';
+import { BrowserRouter } from "react-router-dom";
+import {
+  Expertise,
+  Contact,
+  Project,
+  Hero,
+  Navbar,
+  Works,
+  StarsCanvas,
+  About,
+} from "./components";
 
 const App = () => {
-  
-
   return (
     <>
       <BrowserRouter>
         <div className="relative z-0 bg-primary">
-          <div className='bg-hero-pattern bg-repeat bg-cover bg-center'>
-              <Navbar />
+          <div className="bg-black">
+            <div className="relative z-0">
+              <StarsCanvas />
               <Hero />
-            
+            </div>
+            <Navbar />
             <Expertise />
-            
             <Project />
             <Works />
             <About />
             <div className="relative z-0">
               <Contact />
-              <StarsCanvas />
             </div>
           </div>
         </div>
       </BrowserRouter>
     </>
-  )
-}
+  );
+};
 
-export default App
+export default App;
