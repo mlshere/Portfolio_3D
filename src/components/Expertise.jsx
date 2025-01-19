@@ -68,6 +68,7 @@ const Expertise = () => {
         <div className="flex flex-col items-center justify-center w-full h-full px-8 py-12">
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10 mx-16">
           {services.map((service, index) => (
+            console.log(service),
             <ServiceCard key={service.title} index={index} {...service} />
           ))}
         </div>
