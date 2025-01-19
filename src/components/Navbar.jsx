@@ -15,13 +15,15 @@ const Navbar = () => {
       <div className='w-full flex justify-between items-center max-w-7xl mx-auto'>
         <Link 
         to="/" 
-        className='flex items-center gap-2'
+        className={`${
+          active === Link.title ? "text-white" : "text-secondary"
+        } flex items-center gap-2`}
         onClick={() => {
-          setActive("")
+          setActive(Link.title)
           window.scrollTo(0, 0)
         }}
         >
-          <img src={logo} alt="logo" className="w-9 h-9 object-contain"/>
+          {/* <img src={logo} alt="logo" className="w-9 h-9 object-contain"/> */}
           <p className="text-white text-[18px] font-bold cursor-pointer">Sherezade Maqueda</p>
         </Link>
         <ul className="list-none hidden sm:flex flex-row gap-10">
@@ -33,7 +35,7 @@ const Navbar = () => {
             } hover:text-white text-[18px] font-medium cursor-pointer`}
             onClick={() => setActive(link.title)}
           >
-              <a href={`#${Link.id}`}>{Link.title}</a>
+              <a href={`#${link.id}`}>{link.title}</a>
             </li>
           ))}
         </ul>
