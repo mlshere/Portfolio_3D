@@ -14,14 +14,15 @@ import {
   mongodb,
   git,
   figma,
-  docker,
+  portfolio,
   berlin,
   code,
   groningen,
   hamburg,
   madrid,
+  reddit,
   carrent,
-  jobit,
+  spotifind,
   tripguide,
   threejs,
 } from "../assets";
@@ -120,7 +121,7 @@ const experiences = [
     ]
   },
   { 
-    title: "Stepping into Web Development and Data Science", 
+    title: "Stepping Data Science", 
     city_name: "",
     icon: code, 
     iconBg: "#383E56", 
@@ -135,69 +136,69 @@ const experiences = [
 
 const projects = [
   {
-    name: "Car Rent",
+    name: "Reddit Clone",
     description:
-      "Web-based platform that allows users to search, book, and manage car rentals from various providers, providing a convenient and efficient solution for transportation needs.",
+      "A web-based application copying Reddit social platform UI. The user can create an account, new communities and posts, comment, and upvote/downvote posts.",
     tags: [
       {
         name: "react",
-        color: "blue-text-gradient",
+        color: "white",
       },
       {
-        name: "mongodb",
-        color: "green-text-gradient",
+        name: "typescript",
+        color: "white",
       },
       {
-        name: "tailwind",
-        color: "pink-text-gradient",
+        name: "firebase",
+        color: "white",
       },
     ],
-    image: carrent,
-    source_code_link: "https://github.com/",
+    image: reddit,
+    source_code_link: "https://github.com/mlshere/Reddit-clone",
     category: ["web development", "all"],
   },
   {
-    name: "Job IT",
+    name: "Spotifind",
     description:
-      "Web application that enables users to search for job openings, view estimated salary ranges for positions, and locate available jobs based on their current location.",
+      "Web application that enables users to search for songs in Spotify and create list with those songs. It also allows users to add said lists to their Spotify account.",
     tags: [
       {
         name: "react",
-        color: "blue-text-gradient",
+        color: "white",
       },
       {
         name: "restapi",
-        color: "green-text-gradient",
-      },
-      {
-        name: "scss",
-        color: "pink-text-gradient",
-      },
-    ],
-    image: jobit,
-    source_code_link: "https://github.com/",
-    category: ["web development", "all"],
-  },
-  {
-    name: "Trip Guide",
-    description:
-      "A comprehensive travel booking platform that allows users to book flights, hotels, and rental cars, and offers curated recommendations for popular destinations.",
-    tags: [
-      {
-        name: "nextjs",
-        color: "blue-text-gradient",
-      },
-      {
-        name: "supabase",
-        color: "green-text-gradient",
+        color: "white",
       },
       {
         name: "css",
-        color: "pink-text-gradient",
+        color: "white",
       },
     ],
-    image: tripguide,
-    source_code_link: "https://github.com/",
+    image: spotifind,
+    source_code_link: "https://github.com/mlshere/spotifind",
+    category: ["web development", "all"],
+  },
+  {
+    name: "Portfolio",
+    description:
+      "My personal portfolio website. It showcases my projects and experiences and journey. It also provides a way to contact me through email.",
+    tags: [
+      {
+        name: "react",
+        color: "white",
+      },
+      {
+        name: "tailwind",
+        color: "white",
+      },
+      {
+        name: "threejs",
+        color: "white",
+      },
+    ],
+    image: portfolio,
+    source_code_link: "https://github.com/mlshere/Portfolio_3D",
     category: ["data analytics", "all"],
   },
 ];
