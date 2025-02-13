@@ -30,6 +30,8 @@ import carrent from "./carrent.png";
 import tripguide from "./tripguide.png";
 import lobelokal from "./lobelokal.png";
 import portfolio from "./portfolio.png";
+import instacart from "./instacart.png";
+import rockbuster from "./rockbuster.png";
 
 export {
   logo,
@@ -63,5 +65,7 @@ export {
   tripguide,
   lobelokal, 
   reddit,
-  portfolio
+  portfolio,
+  instacart,
+  rockbuster
 };
