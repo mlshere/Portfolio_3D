@@ -21,7 +21,8 @@ import {
   hamburg,
   madrid,
   reddit,
-  carrent,
+  instacart,
+  rockbuster,
   spotifind,
   tripguide,
   threejs,
@@ -103,10 +104,10 @@ const experiences = [
     icon: hamburg, 
     iconBg: "#383E56",  
     points: [
-      "Studied Gastronomy at Hotel Le Meridiem.",
+      "Studied Gastronomy at Hotel Le Meridiem in Hamburg.",
       "Gained expertise in five-star hotel kitchen operations and team management.",
-      "Learned budget management and team leadership.",
-      "Led a team of chefs post-graduation and assisted other chefs with high-end cuisine."
+      "Learned budget management, menu design and food chain optimization.",
+      "Led a team of chefs post-graduation and help building new talent."
     ]
   },
   { 
@@ -116,12 +117,12 @@ const experiences = [
     iconBg: "#E6DEDD",  
     points: [
       "Worked in several high-end hotels optimizing kitchen procedures.",
-      "Joined an art collective, contributing to kitchen design while transitioning to web development.",
+      "Joined a vegan restaurant, contributing to graphic design while transitioning to web development.",
       "Began learning web development, bridging my gastronomic expertise with formal education.",
     ]
   },
   { 
-    title: "Stepping Data Science", 
+    title: "Stepping into Data Science", 
     city_name: "",
     icon: code, 
     iconBg: "#383E56", 
@@ -199,8 +200,53 @@ const projects = [
     ],
     image: portfolio,
     source_code_link: "https://github.com/mlshere/Portfolio_3D",
+    category: ["web development", "all"],
+  },
+  {
+    name: "Instacart Data Analysis",
+    description:
+      "A data analysis project exploring customer purchasing behavior and grocery shopping trends. Uses Python libraries and visualizations to generate insights.",
+    tags: [
+      {
+        name: "python",
+        color: "white",
+      },
+      {
+        name: "pandas",
+        color: "white",
+      },
+      {
+        name: "matplotlib",
+        color: "white",
+      },
+    ],
+    image: instacart,
+    source_code_link: "https://github.com/mlshere/Instacart",
     category: ["data analytics", "all"],
   },
+  {
+    name: "Rockbuster Stealth",
+    description:
+      "A data analysis project examining Rockbuster’s transition to online streaming. Uses SQL to uncover revenue, customer segmentation, and market positioning",
+    tags: [
+      {
+        name: "SQL",
+        color: "white",
+      },
+      {
+        name: "postgreSQL",
+        color: "white",
+      },
+      {
+        name: "tableau",
+        color: "white",
+      },
+    ],
+    image: rockbuster,
+    source_code_link: "https://github.com/mlshere/Rockbuster",
+    category: ["data analytics", "all"],
+  },
+  
 ];
 
 const filters = [
