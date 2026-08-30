@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import { useState } from 'react'
 import { motion } from 'framer-motion';
 
 import { styles } from '../styles';
@@ -88,7 +88,7 @@ const Works = () => {
     <div className="filters flex items-center mt-10 mx-5">
         <span className="text-secondary mr-2 text-lg">Filter by</span>
         {<ul className="flex space-x-4">
-          {filters.map((filter, index) => (
+          {filters.map((filter) => (
             <li 
             key={filter.id} 
             className="filter-btn relative inline-block px-4 py-2 text-lg cursor-pointer text-secondary hover:text-gray-600"

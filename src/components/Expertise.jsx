@@ -2,7 +2,7 @@ import React from 'react'
 import { services } from '../constants';
 import { motion } from 'framer-motion';
 import { Tilt } from 'react-tilt';
-import { fadeIn, textVariant } from '../utils/motion';
+import { fadeIn } from '../utils/motion';
 import { styles } from '../styles';
 import { SectionWrapper } from '../hoc';
 
@@ -18,21 +18,19 @@ const ServiceCard = ({ index, title, description, icon }) => {
   };
 
   return (
-    <Tilt>
-    
+    <Tilt
+      options={{
+        max: 45,
+        scale: 1,
+        speed: 450
+      }}
+    >
       <motion.div
         variants={fadeIn("right", "spring", 0.5 * index, 0.75)}
         className=""
       >
-      <div
-        options={{
-          max: 45,
-          scale: 1,
-          speed: 450
-          }}
-        className="bg-black-gradient ">      
-
-        <div key={index} className="min-h-[250px] min-w-[200px] border-2 border-white p-4 bg-[#070806] rounded-lg">
+        <div className="bg-black-gradient">
+          <div className="min-h-[250px] min-w-[200px] border-2 border-white p-4 bg-[#070806] rounded-lg">
               <div className="flex items-center mb-4">
                 <div className="text-white">
                 {React.isValidElement(icon) 
@@ -51,9 +49,8 @@ const ServiceCard = ({ index, title, description, icon }) => {
                 <p className="text-white text-center">{description}</p>
               </div>
             </div>
-      </div>
+        </div>
       </motion.div>
-
     </Tilt>
   )
 }
@@ -68,7 +65,6 @@ const Expertise = () => {
         <div className="flex flex-col items-center justify-center w-full h-full px-8 py-12">
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10 mx-16">
           {services.map((service, index) => (
-            console.log(service),
             <ServiceCard key={service.title} index={index} {...service} />
           ))}
         </div>
