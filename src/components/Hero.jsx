@@ -1,8 +1,5 @@
-import React from "react";
 import { motion } from "framer-motion";
 import { styles } from "../styles";
-import { EarthCanvas } from "./canvas";
-import { slideIn } from "../utils/motion";
 
 
 const Hero = () => {
@@ -10,7 +7,7 @@ const Hero = () => {
     <section className="relative w-full h-screen flex items-center justify-center">
       <div className="text-center">
         <h1 className={styles.heroHeadText}>
-          Hi, I'm Sherezade
+          Hi, I&apos;m Sherezade
         </h1>
         <motion.p className="sm:px-16 px-6 sm:py-16 py-10">
         <p className={styles.heroSubText}>
