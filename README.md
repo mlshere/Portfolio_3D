@@ -15,9 +15,14 @@ I'm a marketing data analytics specialist and ecommerce, CRO and web developer w
 
 The standalone Blog page (`src/components/Blog.jsx`, `/blog/`) opens in a new tab
 from the portfolio navigation. Its industrial grid layout includes an article
-index, planned topics and an explicit empty state. It does not contain placeholder
+index with ID, title, topic and date columns, planned topics and an explicit empty state.
+The layout uses compact typography and visible table rules instead of decorative status panels.
+It does not contain placeholder
 articles, publish dates or a subscription form. Add real entries and update the
 published count when articles are available.
+
+The square background uses damped motion, a loose wind-driven trail and staggered
+row assembly for a gentler idle transition. It still stops rendering when settled.
 
 ## Technologies Used
 

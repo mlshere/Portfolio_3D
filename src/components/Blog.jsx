@@ -23,51 +23,62 @@ export default function Blog() {
           <a href="/" className="font-mono text-xs text-[#c5a6bd] hover:text-white">RETURN TO PORTFOLIO</a>
         </div>
       </header>
-      <main id="journal" className="mx-auto max-w-7xl px-6 py-12 sm:px-12 sm:py-20">
-        <div className="grid border border-white/20 bg-[#0b0c10] lg:grid-cols-[minmax(0,3fr)_minmax(0,1fr)]">
-          <div className="p-6 sm:p-10">
-            <p className="font-mono text-xs tracking-widest text-[#c5a6bd]">FIELD NOTES / 001</p>
-            <h1 className="mt-8 text-4xl font-semibold tracking-tight sm:text-6xl lg:text-7xl">Technical<br />journal.</h1>
-            <p className="mt-6 max-w-xl text-base leading-relaxed text-secondary">
-              A record of building, testing and learning. Practical notes on ecommerce,
-              web development, data and cloud, with a focus on how things work.
+      <main id="journal" className="mx-auto max-w-7xl px-6 py-10 sm:px-12 sm:py-14">
+        <div className="flex flex-wrap items-end justify-between gap-6 border-b border-white/20 pb-6">
+          <div>
+            <h1 className="font-mono text-3xl font-medium tracking-tight sm:text-4xl">Journal</h1>
+            <p className="mt-3 max-w-xl text-sm leading-relaxed text-secondary">
+              Notes on ecommerce, code, data and cloud.
             </p>
           </div>
-          <dl className="grid grid-cols-2 border-t border-white/20 font-mono text-xs lg:grid-cols-1 lg:border-l lg:border-t-0">
-            <div className="border-b border-white/20 p-6"><dt className="text-secondary">PUBLISHED</dt><dd className="mt-3 text-3xl">000</dd></div>
-            <div className="border-b border-white/20 p-6"><dt className="text-secondary">STATUS</dt><dd className="mt-3 text-[#c5a6bd]">AWAITING FIRST ENTRY</dd></div>
-            <div className="col-span-2 p-6 lg:col-span-1"><dt className="text-secondary">FOCUS</dt><dd className="mt-3 leading-relaxed">SYSTEMS / EXPERIMENTS / DATA</dd></div>
-          </dl>
+          <p className="font-mono text-xs text-secondary">Published entries: <span className="text-white">0</span></p>
         </div>
-        <section aria-labelledby="index-title" className="mt-12 border border-white/20 bg-[#0b0c10]">
-          <div className="flex flex-wrap items-center justify-between gap-4 border-b border-white/20 p-6">
-            <h2 id="index-title" className="font-mono text-sm">ARTICLE INDEX</h2>
-            <span className="font-mono text-xs text-secondary">0 ENTRIES</span>
-          </div>
-          <div className="grid md:grid-cols-[minmax(0,1fr)_minmax(0,3fr)]">
-            <aside className="border-b border-white/20 p-6 md:border-b-0 md:border-r">
-              <h3 className="font-mono text-xs text-secondary">PLANNED TOPICS</h3>
-              <ul className="mt-5 space-y-4 font-mono text-sm">
-                {topics.map((topic, index) => <li key={topic}><span className="mr-3 text-secondary">0{index + 1}</span>{topic}</li>)}
-              </ul>
-            </aside>
-            <div className="p-6 sm:p-10">
-              <p className="font-mono text-xs text-[#c5a6bd]">INDEX EMPTY</p>
-              <h3 className="mt-6 text-2xl font-medium">No articles published yet.</h3>
-              <p className="mt-4 max-w-lg leading-relaxed text-secondary">
-                The first entry is still ahead. This index will grow with real project notes,
-                technical explorations and lessons from experiments.
-              </p>
-              <a href="/#work" className="mt-8 inline-block border border-white/30 px-5 py-3 font-mono text-xs transition-colors hover:bg-white hover:text-black">
-                EXPLORE CURRENT WORK
-              </a>
+        <div className="mt-8 grid border border-white/20 bg-[#0b0c10] md:grid-cols-[180px_minmax(0,1fr)]">
+          <aside className="border-b border-white/20 md:border-b-0 md:border-r">
+            <h2 className="border-b border-white/20 px-4 py-3 font-mono text-xs text-secondary">Topics</h2>
+            <ul className="font-mono text-xs">
+              {topics.map((topic) => (
+                <li key={topic} className="border-b border-white/10 px-4 py-4">{topic}</li>
+              ))}
+            </ul>
+            <p className="px-4 py-5 text-xs leading-relaxed text-secondary">Topics planned for future entries.</p>
+          </aside>
+          <section aria-labelledby="index-title" className="min-w-0">
+            <div className="flex items-center justify-between border-b border-white/20 px-4 py-3 font-mono text-xs">
+              <h2 id="index-title">Article index</h2>
+              <span className="text-secondary">0 records</span>
             </div>
-          </div>
-        </section>
+            <table className="journal-table w-full table-fixed border-collapse font-mono text-xs">
+              <caption className="sr-only">Published articles. No entries yet.</caption>
+              <colgroup><col className="w-[12%]" /><col className="w-[43%]" /><col className="w-[23%]" /><col className="w-[22%]" /></colgroup>
+              <thead>
+                <tr className="bg-white/[0.03] text-secondary">
+                  <th scope="col">ID</th>
+                  <th scope="col">Title</th>
+                  <th scope="col">Topic</th>
+                  <th scope="col">Date</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td colSpan={4} className="h-52 align-top">
+                    <p className="mt-5 text-sm text-white">No articles published yet.</p>
+                    <p className="mt-2 font-sans text-sm leading-relaxed text-secondary">New entries will appear here.</p>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            <div className="journal-empty-grid h-40 border-b border-white/10" aria-hidden="true" />
+            <div className="flex flex-wrap justify-between gap-4 px-4 py-4 font-mono text-xs text-secondary">
+              <span>Showing 0 of 0</span>
+              <a href="/#work" className="text-[#c5a6bd] hover:text-white">View portfolio</a>
+            </div>
+          </section>
+        </div>
       </main>
       <footer className="mx-auto flex max-w-7xl flex-wrap justify-between gap-4 border-t border-white/20 px-6 py-6 font-mono text-xs text-secondary sm:px-12">
-        <p>INDEPENDENT NOTES / SHEREZADE MAQUEDA</p>
-        <p>ECOMMERCE / DEVELOPMENT / DATA / CLOUD</p>
+        <p>Sherezade Maqueda</p>
+        <p>Journal / Article index</p>
       </footer>
     </div>
   );

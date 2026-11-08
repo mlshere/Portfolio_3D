@@ -4,9 +4,9 @@ import { Object3D, Vector2 } from 'three';
 
 const COUNT = 64;
 const SIDE = 8;
-const IDLE_DELAY = 0.65;
-const LINE_DURATION = 0.65;
-const GRID_DURATION = 1.2;
+const IDLE_DELAY = 1;
+const LINE_DURATION = 1.1;
+const GRID_DURATION = 2.4;
 
 function Squares() {
   const mesh = useRef(null);
@@ -15,6 +15,8 @@ function Squares() {
   const previousMove = useRef(-Infinity);
   const visible = useRef(true);
   const positions = useMemo(() => Array.from({ length: COUNT }, () => new Vector2()), []);
+  const velocities = useMemo(() => Array.from({ length: COUNT }, () => new Vector2()), []);
+  const rotations = useMemo(() => new Float32Array(COUNT), []);
   const trail = useMemo(() => Array.from({ length: COUNT }, () => new Vector2(0.55, 0.25)), []);
   const transform = useMemo(() => new Object3D(), []);
   const target = useMemo(() => new Vector2(), []);
@@ -41,18 +43,18 @@ function Squares() {
     };
   }, [invalidate]);
 
-  useFrame((_, delta) => {
+  useFrame((state, delta) => {
     if (!mesh.current || !visible.current) return;
     const age = performance.now() / 1000 - previousMove.current;
     const following = age < IDLE_DELAY;
-    const gridProgress = Math.min(1, Math.max(0, (age - IDLE_DELAY - LINE_DURATION) / GRID_DURATION));
-    const blend = gridProgress * gridProgress * (3 - 2 * gridProgress);
+    const time = state.clock.elapsedTime;
     const spacing = Math.min(viewport.width, viewport.height) * 0.035;
-    const size = spacing * 0.68;
+    const size = spacing * 0.52;
     const margin = spacing * (SIDE + 3) * 0.5;
     const centerX = Math.max(-viewport.width * 0.5 + margin, Math.min(viewport.width * 0.5 - margin, pointer.current.x * viewport.width * 0.5));
     const centerY = Math.max(-viewport.height * 0.5 + margin, Math.min(viewport.height * 0.5 - margin, pointer.current.y * viewport.height * 0.5));
-    const smoothing = 1 - Math.exp(-Math.min(delta, 0.05) * 9);
+    const dt = Math.min(delta, 1 / 30);
+    const smoothing = 1 - Math.exp(-dt * 4);
     let unsettled = false;
 
     for (let index = 0; index < COUNT; index += 1) {
@@ -60,37 +62,48 @@ function Squares() {
       const column = row % 2 === 0 ? index % SIDE : SIDE - 1 - index % SIDE;
       const gridX = (column - (SIDE - 1) / 2) * spacing;
       const gridY = ((SIDE - 1) / 2 - row) * spacing;
+      const gridProgress = Math.min(1, Math.max(0, (age - IDLE_DELAY - LINE_DURATION - row * 0.08) / GRID_DURATION));
+      const blend = gridProgress * gridProgress * (3 - 2 * gridProgress);
+      const phase = index * 2.399;
+      const drift = following ? 1 : 1 - blend;
+      const windX = Math.sin(time * 0.65 + phase) * spacing * 1.4 * drift;
+      const windY = Math.cos(time * 0.45 + phase) * spacing * 0.9 * drift;
       let targetX;
       let targetY;
 
       if (following) {
-        trail[index].lerp(index === 0 ? pointer.current : trail[index - 1], smoothing * 0.8);
-        targetX = trail[index].x * viewport.width * 0.5 + Math.sin(index * 2.4) * spacing;
-        targetY = trail[index].y * viewport.height * 0.5 + Math.cos(index * 2.4) * spacing;
+        const trailSmoothing = 1 - Math.exp(-dt * (index === 0 ? 10 : 7));
+        trail[index].lerp(index === 0 ? pointer.current : trail[index - 1], trailSmoothing);
+        targetX = trail[index].x * viewport.width * 0.5 + windX;
+        targetY = trail[index].y * viewport.height * 0.5 + windY;
       } else {
         // A serpentine ordering folds the horizontal line into puzzle rows.
         const lineX = (index / (COUNT - 1) - 0.5) * spacing * (SIDE + 3);
-        targetX = centerX + lineX * (1 - blend) + gridX * blend;
-        targetY = centerY + gridY * blend;
+        targetX = centerX + lineX * (1 - blend) + gridX * blend + windX;
+        targetY = centerY + gridY * blend + windY;
         trail[index].copy(pointer.current);
       }
 
-      positions[index].lerp(target.set(targetX, targetY), smoothing);
-      if (Math.abs(positions[index].x - targetX) + Math.abs(positions[index].y - targetY) > 0.002) unsettled = true;
+      target.set(targetX, targetY).sub(positions[index]);
+      velocities[index].addScaledVector(target, 20 * dt).multiplyScalar(Math.exp(-7 * dt));
+      positions[index].addScaledVector(velocities[index], dt);
+      const rotationTarget = Math.sin(time * 0.5 + phase) * 0.45 * drift;
+      rotations[index] += (rotationTarget - rotations[index]) * smoothing;
+      if (gridProgress < 1 || target.lengthSq() > 0.000004 || velocities[index].lengthSq() > 0.000004 || Math.abs(rotations[index]) > 0.002) unsettled = true;
       transform.position.set(positions[index].x, positions[index].y, 0);
-      transform.rotation.z = following ? Math.sin(index + age * 2) * 0.3 : 0;
-      transform.scale.setScalar(size);
+      transform.rotation.z = rotations[index];
+      transform.scale.setScalar(size * (1 - drift * (0.15 + 0.15 * Math.sin(phase))));
       transform.updateMatrix();
       mesh.current.setMatrixAt(index, transform.matrix);
     }
     mesh.current.instanceMatrix.needsUpdate = true;
-    if (following || gridProgress < 1 || unsettled) invalidate();
+    if (following || unsettled) invalidate();
   });
 
   return (
     <instancedMesh ref={mesh} args={[null, null, COUNT]} frustumCulled={false}>
       <planeGeometry args={[1, 1]} />
-      <meshBasicMaterial color="white" transparent opacity={0.09} depthWrite={false} />
+      <meshBasicMaterial color="white" transparent opacity={0.065} depthWrite={false} />
     </instancedMesh>
   );
 }
