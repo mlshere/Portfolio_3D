@@ -4,11 +4,12 @@ I'm a marketing data analytics specialist and ecommerce, CRO and web developer w
 
 ## Key Features
 
-- **Animated Hero Section**: A dynamic introduction with animated elements that immediately engage the visitor.
-- **Interactive 3D Earth Model**: Created using `three.js`, this Earth model adds an interactive and visually compelling element to the site.
-- **Animated Section Elements**: Leveraging `framer motion`, various elements are animated as they appear on the screen, enhancing the user experience.
-- **Tilt Animations**: Applied to cards in the Expertise and Work sections, the tilt effect adds a dynamic and modern touch to the presentation.
-- **Timeline**: A detailed timeline in the About section that chronicles my personal, professional, and educational journey.
+- **Work-first layout**: A compact hero with work and contact links leads into CMS work, independent projects, expertise, about, blog and contact.
+- **Accessible navigation**: Mobile menu, keyboard-accessible project filters, visible focus states and a skip link.
+- **CMS showcase**: Shopify and WordPress projects with responsive WebP screenshots, contribution summaries and live links.
+- **Restrained motion**: Subtle transitions respect reduced-motion preferences. Decorative WebGL and card tilt are not loaded.
+- **Compact experience**: Current work is shown first; earlier experience remains available in an expandable section.
+- **Contact feedback**: Required fields, inline success/error messages and duplicate-submission protection.
 
 ## Blog
 
@@ -22,9 +23,9 @@ Replace the empty-state panel with real entries when articles are available.
 - **React**: The primary JavaScript library used to build the user interface.
 - **Tailwind CSS**: For styling, providing a utility-first CSS framework.
 - **Framer Motion**: For animations, adding smooth transitions and visual appeal.
-- **Three.js**: Used to create the 3D Earth model and other 3D elements.
+- **Three.js**: Retained for the optional canvas components; not loaded by the main portfolio.
 - **EmailJS**: For handling the contact form and sending emails directly from the portfolio.
-- **React-Tilt**: Implemented to animate the project and expertise cards.
+- **React-Tilt**: Retained for optional legacy components; the main cards use restrained CSS transitions.
 
 ## Getting Started
 
@@ -70,10 +71,10 @@ The wildcard route preserves the existing SPA fallback for deep links without
 adding duplicate pages to the sitemap.
 When adding routes, update the route list in `src/main.jsx` and `public/sitemap.xml`.
 
-The HTML contains all portfolio text before JavaScript runs. Canvas and tilt
-effects load only after hydration, EmailJS loads on form submission, and motion
-sections start visible. Timeline entrance animation is disabled so its text is
-also visible without JavaScript; its layout and card styling are unchanged.
+The HTML contains the initial portfolio view before JavaScript runs.
+CMS project selection updates the preview after hydration. EmailJS loads on
+form submission, and motion sections start visible. Earlier experience uses
+native details/summary so it is accessible without JavaScript.
 
 Vite copies `public/.htaccess`, `robots.txt` and `sitemap.xml` into `dist/`.
 The Apache rules preserve files/directories and internally serve the SPA for

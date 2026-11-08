@@ -1,5 +1,4 @@
-import { lazy } from "react";
-import ClientOnly from "./components/ClientOnly";
+import { MotionConfig } from "framer-motion";
 import {
   Expertise,
   Contact,
@@ -11,29 +10,27 @@ import {
   Blog,
 } from "./components";
 
-const StarsCanvas = lazy(() => import("./components/canvas/Stars"));
-
 const App = () => {
   return (
+    <MotionConfig reducedMotion="user">
     <div className="relative z-0 bg-primary">
-      <div className="bg-black">
-        <div className="relative z-0">
-          <ClientOnly fallback={<div aria-hidden="true" className="absolute inset-0 bg-black z-[-1]" />}>
-            <StarsCanvas />
-          </ClientOnly>
-          <Hero />
-        </div>
+      <a href="#main-content" className="skip-link">Skip to content</a>
         <Navbar />
-        <Expertise />
+      <main id="main-content">
+        <Hero />
         <Project />
         <Works />
+        <Expertise />
         <About />
         <Blog />
-        <div className="relative z-0">
-          <Contact />
-        </div>
+        <Contact />
+      </main>
+        <footer className="mx-auto flex max-w-7xl flex-wrap justify-between gap-4 border-t border-white/10 px-6 py-8 text-sm text-secondary sm:px-16">
+          <p>Sherezade Maqueda</p>
+          <a href="#work">Back to selected work</a>
+        </footer>
       </div>
-    </div>
+    </MotionConfig>
   );
 };
 

@@ -3,23 +3,33 @@ import { AnimatePresence, motion, useReducedMotion } from 'framer-motion';
 import { styles } from '../styles';
 import { SectionWrapper } from '../hoc';
 import { textVariant } from '../utils/motion';
-import { lobelokal } from '../assets';
-import braineffect from '../assets/braineffect.png';
-import bVisual from '../assets/b-visual.png';
-import terapiaOnline from '../assets/terapia-online.png';
+import braineffect from '../assets/braineffect.webp';
+import bVisual from '../assets/b-visual.webp';
+import terapiaOnline from '../assets/terapia-online.webp';
+import lobePreview from '../assets/lobe-lokal.webp';
+import braineffectSmall from '../assets/braineffect-640.webp';
+import bVisualSmall from '../assets/b-visual-640.webp';
+import terapiaOnlineSmall from '../assets/terapia-online-640.webp';
+import lobeSmall from '../assets/lobe-lokal-640.webp';
 
 const cmsProjects = [
   {
     name: "Braineffect",
     description: "Ecommerce development, CRO experiments and martech integrations.",
     image: braineffect,
+    smallImage: braineffectSmall,
+    role: "Technical ecommerce management and development",
+    deliverable: "CRO experiments, martech integrations and technical implementation.",
     projectUrl: "https://www.brain-effect.com/",
     platform: "Shopify",
   },
   {
     name: "Lobe Lokal",
     description: "A website for a Berlin community space, canteen and events.",
-    image: lobelokal,
+    image: lobePreview,
+    smallImage: lobeSmall,
+    role: "WordPress website implementation",
+    deliverable: "A website presenting the space, canteen and events.",
     projectUrl: "https://lobeblock.de/",
     platform: "WordPress",
   },
@@ -27,6 +37,9 @@ const cmsProjects = [
     name: "B-Visual",
     description: "A designer's portfolio showcasing creative work and services.",
     image: bVisual,
+    smallImage: bVisualSmall,
+    role: "WordPress website implementation",
+    deliverable: "A designer portfolio presenting creative work and services.",
     projectUrl: "https://b-visual.es/",
     platform: "WordPress",
   },
@@ -34,6 +47,9 @@ const cmsProjects = [
     name: "Terapia Online en Español",
     description: "A website presenting online therapy services in Spanish.",
     image: terapiaOnline,
+    smallImage: terapiaOnlineSmall,
+    role: "WordPress website implementation",
+    deliverable: "A Spanish-language website presenting therapy services.",
     projectUrl: "https://terapiaonlineenespanol.com/",
     platform: "WordPress",
   },
@@ -78,7 +94,7 @@ const Project = () => {
                     }`}
                   >
                     <span className="block text-lg font-semibold text-white">{project.name}</span>
-                    <span className="mt-1 block text-sm leading-relaxed text-secondary">{project.description}</span>
+                    <span className="mt-1 hidden text-sm leading-relaxed text-secondary lg:block">{project.description}</span>
                   </button>
                 ))}
               </div>
@@ -107,20 +123,27 @@ const Project = () => {
               <div className="aspect-[16/10] bg-black">
                 <img
                   src={selectedProject.image}
+                  srcSet={`${selectedProject.smallImage} 640w, ${selectedProject.image} 1280w`}
+                  sizes="(min-width: 1024px) 750px, (min-width: 640px) calc(100vw - 128px), calc(100vw - 48px)"
                   alt={`${selectedProject.name} website screenshot`}
                   className="h-full w-full object-contain"
                   decoding="async"
+                  loading="lazy"
                 />
               </div>
               <div className="p-6 sm:p-8">
                 <h3 className="text-2xl font-bold text-white">{selectedProject.name}</h3>
                 <p className="mt-2 text-secondary">{selectedProject.description}</p>
+                <dl className="mt-5 grid gap-4 border-t border-white/10 pt-5 text-sm sm:grid-cols-2">
+                  <div><dt className="font-medium text-white">My role</dt><dd className="mt-1 leading-relaxed text-secondary">{selectedProject.role}</dd></div>
+                  <div><dt className="font-medium text-white">What I built</dt><dd className="mt-1 leading-relaxed text-secondary">{selectedProject.deliverable}</dd></div>
+                </dl>
                 <a
                   href={selectedProject.projectUrl}
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label={`Visit ${selectedProject.name} website`}
-                  className="mt-6 inline-flex rounded-full bg-[#ac829e] px-6 py-3 font-medium text-white transition-colors hover:bg-[#77506b] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#c5a6bd]"
+                  className="mt-6 inline-flex rounded-full bg-[#c5a6bd] px-6 py-3 font-semibold text-[#0b0c10] transition-colors hover:bg-[#dfc7d8]"
                 >
                   Visit website
                   <svg aria-hidden="true" className="ml-3 h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">

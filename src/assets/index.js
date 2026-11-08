@@ -25,9 +25,6 @@ import code from "./company/code.svg";
 import groningen from "./company/groningen.png";
 import hamburg from "./company/hamburg.png";
 import madrid from "./company/madrid.png";
-import carrent from "./carrent.png";
-import tripguide from "./tripguide.png";
-import lobelokal from "./lobelokal.png";
 import portfolio from "./portfolio.png";
 import instacart from "./instacart.png";
 import rockbuster from "./rockbuster.png";
@@ -59,9 +56,6 @@ export {
   groningen,
   hamburg,
   madrid,
-  carrent,
-  tripguide,
-  lobelokal, 
   reddit,
   portfolio,
   instacart,

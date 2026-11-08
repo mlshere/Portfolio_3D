@@ -1,39 +1,26 @@
-import { motion } from "framer-motion";
 import { styles } from "../styles";
 
-
-const Hero = () => {
-  return (
-    <section className="relative w-full h-screen flex items-center justify-center">
-      <div className="text-center">
-        <h1 className={styles.heroHeadText}>
-          Hi, I&apos;m Sherezade
-        </h1>
-        <motion.div className="sm:px-16 px-6 sm:py-16 py-10">
-        <p className={styles.heroSubText}>
-          I connect ecommerce, CRO and web development through A/B testing, martech, data, automation and cloud.
-        </p>
-        </motion.div>
-      </div>
-      <div className="absolute xs:bottom-10 bottom-32 w-full flex justify-center">
-        <a href="#expertise" aria-label="Explore my expertise">
-          <div className="w-[35px] h-[64px] rounded-3xl border-4 border-secondary flex justify-center items-start p-2">
-            <motion.div
-              animate={{
-                y: [0, 24, 0],
-              }}
-              transition={{
-                duration: 1.5,
-                repeat: Infinity,
-                repeatType: "loop",
-              }}
-              className="w-3 h-3 bg-secondary rounded-full mb-1"
-            />
-          </div>
-        </a>
-      </div>
-    </section>
-  );
-};
+const Hero = () => (
+  <section className="relative mx-auto max-w-7xl px-6 pb-16 pt-36 sm:px-16 sm:pb-24 sm:pt-44">
+    <p className={styles.sectionSubText}>Development · Data · Experimentation</p>
+    <h1 className={`${styles.heroHeadText} max-w-4xl`}>
+      Ecommerce thinking.<br />
+      <span className="text-[#c5a6bd]">Technical execution.</span>
+    </h1>
+    <p className={`${styles.heroSubText} mt-6 max-w-2xl`}>
+      I&apos;m Sherezade. I connect development, data and experimentation
+      to improve digital experiences.
+    </p>
+    <div className="mt-8 flex flex-wrap gap-4">
+      <a href="#work" className="rounded-full bg-[#c5a6bd] px-6 py-3 font-semibold text-[#0b0c10] transition-colors hover:bg-[#dfc7d8]">
+        Explore my work
+      </a>
+      <a href="#contact" className="rounded-full border border-white/20 px-6 py-3 font-medium text-white transition-colors hover:bg-white/5">
+        Get in touch
+      </a>
+    </div>
+    <p className="mt-10 font-mono text-xs text-secondary">Shopify / WordPress / React / Python / SQL</p>
+  </section>
+);
 
 export default Hero;

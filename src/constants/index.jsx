@@ -12,12 +12,12 @@ import {
 
 export const navLinks = [
   {
-    id: "about",
-    title: "About",
-  },
-  {
     id: "work",
     title: "Work",
+  },
+  {
+    id: "about",
+    title: "About",
   },
   {
     id: "blog",
@@ -137,6 +137,8 @@ const experiences = [
 const projects = [
   {
     name: "Reddit Clone",
+    role: "Application development",
+    deliverable: "A React and Firebase application with communities, posts, comments and voting.",
     description:
       "A web-based application copying Reddit social platform UI. The user can create an account, new communities and posts, comment, and upvote/downvote posts.",
     tags: [
@@ -159,6 +161,8 @@ const projects = [
   },
   {
     name: "Portfolio",
+    role: "Website development",
+    deliverable: "A React portfolio with project showcases, static rendering and a contact form.",
     description:
       "My personal portfolio website. It showcases my projects and experiences and journey. It also provides a way to contact me through email.",
     tags: [
@@ -181,6 +185,8 @@ const projects = [
   },
   {
     name: "Instacart Data Analysis",
+    role: "Data analysis",
+    deliverable: "Python analysis and visualizations of purchasing behavior and grocery shopping trends.",
     description:
       "A data analysis project exploring customer purchasing behavior and grocery shopping trends. Uses Python libraries and visualizations to generate insights.",
     tags: [
@@ -203,6 +209,8 @@ const projects = [
   },
   {
     name: "Rockbuster Stealth",
+    role: "Data analysis",
+    deliverable: "SQL analysis of revenue, customer segmentation and market positioning.",
     description:
       "A data analysis project examining Rockbuster’s transition to online streaming. Uses SQL to uncover revenue, customer segmentation, and market positioning",
     tags: [

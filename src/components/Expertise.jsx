@@ -1,77 +1,21 @@
-import React from 'react'
 import { services } from '../constants';
-import { motion } from 'framer-motion';
-import Tilt from './ClientTilt';
-import { fadeIn } from '../utils/motion';
 import { styles } from '../styles';
 import { SectionWrapper } from '../hoc';
 
-const ServiceCard = ({ index, title, description, icon }) => {
-  const convertSvgProps = (props) => {
-    const converted = {};
-    Object.keys(props).forEach(key => {
-      if (key === 'stroke-linecap') converted.strokeLinecap = props[key];
-      else if (key === 'stroke-linejoin') converted.strokeLinejoin = props[key];
-      else converted[key] = props[key];
-    });
-    return converted;
-  };
+const Expertise = () => (
+  <>
+    <p className={styles.sectionSubText}>How I work</p>
+    <h2 className={styles.sectionHeadText}>Expertise that connects the dots</h2>
+    <div className="mt-8 grid gap-4 md:grid-cols-3">
+      {services.map((service) => (
+        <article key={service.title} className="rounded-2xl border border-white/10 bg-white/[0.02] p-6">
+          <div aria-hidden="true" className="mb-6 text-[#c5a6bd]">{service.icon}</div>
+          <h3 className="text-xl font-semibold text-white">{service.title}</h3>
+          <p className="mt-3 text-base leading-relaxed text-secondary">{service.description}</p>
+        </article>
+      ))}
+    </div>
+  </>
+);
 
-  return (
-    <Tilt
-      options={{
-        max: 45,
-        scale: 1,
-        speed: 450
-      }}
-    >
-      <motion.div
-        variants={fadeIn("right", "spring", 0.5 * index, 0.75)}
-        className=""
-      >
-        <div className="bg-black-gradient">
-          <div className="min-h-[250px] min-w-[200px] border-2 border-white p-4 bg-[#070806] rounded-lg">
-              <div className="flex items-center mb-4">
-                <div className="text-white">
-                {React.isValidElement(icon) 
-                  ? React.cloneElement(icon, convertSvgProps(icon.props))
-                  : icon
-                }
-                </div>
-                <h3 className="text-white text-xl font-semibold">
-                  <span className="relative inline-block">
-                    {title}
-                    <span className="absolute bottom-0 left-0 w-full h-1 bg-[#ac829e] rounded-full"></span>
-                  </span>
-                </h3>
-              </div>
-              <div className="flex-grow flex items-center justify-center">
-                <p className="text-white text-center">{description}</p>
-              </div>
-            </div>
-        </div>
-      </motion.div>
-    </Tilt>
-  )
-}
-
-const Expertise = () => {
-  return (
-    <>
-    <section className="">
-        <motion.div>
-          <h2 className={styles.sectionHeadText}>My Expertise</h2>
-        </motion.div>
-        <div className="flex flex-col items-center justify-center w-full h-full px-8 py-12">
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10 mx-16">
-          {services.map((service, index) => (
-            <ServiceCard key={service.title} index={index} {...service} />
-          ))}
-        </div>
-      </div>
-    </section>
-    </>
-  )
-}
-
-export default SectionWrapper(Expertise, "expertise")
+export default SectionWrapper(Expertise, "expertise");
