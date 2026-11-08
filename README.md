@@ -7,7 +7,7 @@ I'm a marketing data analytics specialist and ecommerce, CRO and web developer w
 - **Work-first layout**: A compact hero with work and contact links leads into CMS work, independent projects, expertise, about, blog and contact.
 - **Accessible navigation**: Mobile menu, keyboard-accessible project filters, visible focus states and a skip link.
 - **CMS showcase**: Shopify and WordPress projects with responsive WebP screenshots, contribution summaries and live links.
-- **Cosmic background**: A lazy-loaded Three.js starfield rotates gently behind the portfolio without following the pointer. Reduced-motion users see static stars, and animation pauses in hidden tabs. Card tilt is not loaded.
+- **Cosmic background**: A lazy-loaded Three.js starfield rotates gently with smooth mouse-driven camera parallax. The view recenters when the pointer leaves the window. Reduced-motion users see static stars, and animation pauses in hidden tabs. Card tilt is not loaded.
 - **Compact experience**: Current work is shown first; earlier experience remains available in an expandable section.
 - **Contact feedback**: Required fields, inline success/error messages and duplicate-submission protection.
 
