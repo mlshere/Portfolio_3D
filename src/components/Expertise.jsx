@@ -1,7 +1,7 @@
 import React from 'react'
 import { services } from '../constants';
 import { motion } from 'framer-motion';
-import { Tilt } from 'react-tilt';
+import Tilt from './ClientTilt';
 import { fadeIn } from '../utils/motion';
 import { styles } from '../styles';
 import { SectionWrapper } from '../hoc';
@@ -38,12 +38,12 @@ const ServiceCard = ({ index, title, description, icon }) => {
                   : icon
                 }
                 </div>
-                <h4 className="text-white text-xl font-semibold">
+                <h3 className="text-white text-xl font-semibold">
                   <span className="relative inline-block">
                     {title}
                     <span className="absolute bottom-0 left-0 w-full h-1 bg-[#ac829e] rounded-full"></span>
                   </span>
-                </h4>
+                </h3>
               </div>
               <div className="flex-grow flex items-center justify-center">
                 <p className="text-white text-center">{description}</p>
@@ -75,4 +75,3 @@ const Expertise = () => {
 }
 
 export default SectionWrapper(Expertise, "expertise")
-

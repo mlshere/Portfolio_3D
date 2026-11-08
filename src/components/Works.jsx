@@ -6,12 +6,12 @@ import { github } from '../assets';
 import { SectionWrapper } from '../hoc';
 import { textVariant, fadeIn } from '../utils/motion';
 import { projects, filters } from '../constants';
-import { Tilt } from 'react-tilt';
+import Tilt from './ClientTilt';
 
 
 const ProjectCard = ({ index, name, description, tags, image, source_code_link, }) => {
   return (
-    <motion.div variants={fadeIn("right", "spring", 0.5 * index, 0.75)} initia="hidden" animate="show">
+    <motion.div variants={fadeIn("right", "spring", 0.5 * index, 0.75)} initial={false} animate="show">
       <Tilt
         options={{
           max: 45,
@@ -28,16 +28,19 @@ const ProjectCard = ({ index, name, description, tags, image, source_code_link, 
           />
 
           <div className="absolute inset-0 flex justify-end m-3 card-img_hover" >
-            <div
-            onClick={() => window.open(source_code_link, "_blank")}
+            <a
+            href={source_code_link}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label={`View ${name} source code on GitHub`}
             className="black-gradient w-10 h-10 rounded-full flex justify-center items-center cursor-pointer" 
             >
               <img 
                 src={github}
-                alt="Github"
+                alt={`${name} source code on GitHub`}
                 className="w-1/2 h-1/2"
                 />
-            </div>
+            </a>
           </div>
         </div>
         <div className="mt-5">
@@ -114,4 +117,3 @@ const Works = () => {
 }
 
 export default SectionWrapper(Works, ""); 
-

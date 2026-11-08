@@ -1,4 +1,5 @@
-import { BrowserRouter } from "react-router-dom";
+import { lazy } from "react";
+import ClientOnly from "./components/ClientOnly";
 import {
   Expertise,
   Contact,
@@ -6,32 +7,31 @@ import {
   Hero,
   Navbar,
   Works,
-  StarsCanvas,
   About,
 } from "./components";
 
+const StarsCanvas = lazy(() => import("./components/canvas/Stars"));
+
 const App = () => {
   return (
-    <>
-      <BrowserRouter>
-        <div className="relative z-0 bg-primary">
-          <div className="bg-black">
-            <div className="relative z-0">
-              <StarsCanvas />
-              <Hero />
-            </div>
-            <Navbar />
-            <Expertise />
-            <Project />
-            <Works />
-            <About />
-            <div className="relative z-0">
-              <Contact />
-            </div>
-          </div>
+    <div className="relative z-0 bg-primary">
+      <div className="bg-black">
+        <div className="relative z-0">
+          <ClientOnly fallback={<div aria-hidden="true" className="absolute inset-0 bg-black z-[-1]" />}>
+            <StarsCanvas />
+          </ClientOnly>
+          <Hero />
         </div>
-      </BrowserRouter>
-    </>
+        <Navbar />
+        <Expertise />
+        <Project />
+        <Works />
+        <About />
+        <div className="relative z-0">
+          <Contact />
+        </div>
+      </div>
+    </div>
   );
 };
 

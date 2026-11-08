@@ -1,6 +1,6 @@
 # Sherezade Maqueda Portfolio
 
-Welcome to my personal portfolio! This project is a showcase of the skills and projects I've developed as a self-taught web developer, with a particular emphasis on front-end development. Through this portfolio, I aim to take you on a journey from my roots in media and gastronomy, through my exploration of UX design, and finally to my passion for web development. It also reflects my commitment to collaboration and continuous professional growth in the tech industry.
+I'm a marketing data analytics specialist and ecommerce, CRO and web developer working across A/B testing, martech, data, automation and cloud. I'm self-taught in JavaScript, React, SQL and Python, complemented by a data analytics bootcamp, and growing toward software architecture and development. My background in media, gastronomy and UX brought me to this work.
 
 ## Key Features
 
@@ -26,8 +26,8 @@ To run this portfolio locally, follow these steps:
 1. **Clone the repository:**
 
     ```bash
-    git clone https://github.com/yourusername/your-repo-name.git
-    cd your-repo-name
+    git clone https://github.com/mlshere/Portfolio_3D.git
+    cd Portfolio_3D
     ```
 
 2. **Install the dependencies:**
@@ -53,6 +53,29 @@ To run this portfolio locally, follow these steps:
    Open your browser and navigate to `http://localhost:5173` to see the portfolio in action.
 
 ## CI/CD
+
+### Static rendering and SEO
+
+`npm run build` uses `vite-react-ssg` 0.8.x (compatible with Vite 5, React 18
+and React Router v6) to pre-render `/` into `dist/index.html`. Navigation links
+target sections on that route, so hash fragments are not separate sitemap entries.
+The wildcard route preserves the existing SPA fallback for deep links without
+adding duplicate pages to the sitemap.
+When adding routes, update the route list in `src/main.jsx` and `public/sitemap.xml`.
+
+The HTML contains all portfolio text before JavaScript runs. Canvas and tilt
+effects load only after hydration, EmailJS loads on form submission, and motion
+sections start visible. Timeline entrance animation is disabled so its text is
+also visible without JavaScript; its layout and card styling are unchanged.
+
+Vite copies `public/.htaccess`, `robots.txt` and `sitemap.xml` into `dist/`.
+The Apache rules preserve files/directories and internally serve the SPA for
+deep links; they do not add or replace HTTPS/www redirects. Keep any existing
+Hostinger HTTPS/www rules before the SPA block when managing server rules.
+
+**TODO:** Add a 1200x630 social preview image at `public/og-image.png`.
+Open Graph and Twitter metadata already reference `/og-image.png`; previews
+will not show an image until this file is supplied.
 
 Two GitHub Actions workflows are included in `.github/workflows/`.
 
@@ -123,7 +146,7 @@ In future iterations, I plan to add a dedicated page for each project where I wi
 
 ## Live Demo
 
-The live demo of this portfolio is currently under development and will be available soon.
+https://mlsherezade.com
 
 ## Contact
 
