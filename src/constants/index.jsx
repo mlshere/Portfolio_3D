@@ -219,48 +219,6 @@ const projects = [
     source_code_link: "https://github.com/mlshere/Rockbuster",
     category: ["data analytics", "all"],
   },
-  {
-    name: "B-Visual Portfolio",
-    description:
-      "A designer portfolio built with WordPress, showcasing visual design work and services.",
-    tags: [
-      {
-        name: "wordpress",
-        color: "white",
-      },
-      {
-        name: "design",
-        color: "white",
-      },
-      {
-        name: "portfolio",
-        color: "white",
-      },
-    ],
-    project_link: "https://b-visual.es/",
-    category: ["web development", "all"],
-  },
-  {
-    name: "Terapia Online en Español",
-    description:
-      "A Spanish-language website presenting online therapy services and information for people seeking support.",
-    tags: [
-      {
-        name: "therapy",
-        color: "white",
-      },
-      {
-        name: "healthcare",
-        color: "white",
-      },
-      {
-        name: "website",
-        color: "white",
-      },
-    ],
-    project_link: "https://terapiaonlineenespanol.com/",
-    category: ["web development", "all"],
-  },
 ];
 
 const filters = [
