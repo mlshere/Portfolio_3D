@@ -22,6 +22,8 @@ export const navLinks = [
   {
     id: "blog",
     title: "Blog",
+    href: "/blog/",
+    newTab: true,
   },
   {
     id: "contact",

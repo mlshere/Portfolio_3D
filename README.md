@@ -13,10 +13,11 @@ I'm a marketing data analytics specialist and ecommerce, CRO and web developer w
 
 ## Blog
 
-The Blog section (`src/components/Blog.jsx`, linked at `#blog`) currently displays
-an editorial introduction and an explicit empty state. It does not contain
-placeholder articles, publish dates, article links or a subscription form.
-Replace the empty-state panel with real entries when articles are available.
+The standalone Blog page (`src/components/Blog.jsx`, `/blog/`) opens in a new tab
+from the portfolio navigation. Its industrial grid layout includes an article
+index, planned topics and an explicit empty state. It does not contain placeholder
+articles, publish dates or a subscription form. Add real entries and update the
+published count when articles are available.
 
 ## Technologies Used
 
@@ -65,8 +66,9 @@ To run this portfolio locally, follow these steps:
 ### Static rendering and SEO
 
 `npm run build` uses `vite-react-ssg` 0.8.x (compatible with Vite 5, React 18
-and React Router v6) to pre-render `/` into `dist/index.html`. Navigation links
-target sections on that route, so hash fragments are not separate sitemap entries.
+and React Router v6) to pre-render `/` and `/blog/`. Each page has its own
+title, description and canonical URL. Portfolio section hash fragments are not
+separate sitemap entries.
 The wildcard route preserves the existing SPA fallback for deep links without
 adding duplicate pages to the sitemap.
 When adding routes, update the route list in `src/main.jsx` and `public/sitemap.xml`.

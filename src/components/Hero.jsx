@@ -19,7 +19,7 @@ const Hero = () => (
         Get in touch
       </a>
     </div>
-    <p className="mt-10 font-mono text-xs text-secondary">Shopify / WordPress / React / Python / SQL</p>
+    <p className="mt-10 font-mono text-xs text-secondary">Shopify / WordPress / React / Python / SQL / Google Cloud</p>
   </section>
 );
 

@@ -42,8 +42,11 @@ const Navbar = () => {
         <ul id="main-navigation" className={`${open ? 'flex' : 'hidden'} absolute inset-x-0 top-full flex-col gap-1 border-b border-white/10 bg-[#0b0c10] p-5 md:static md:flex md:flex-row md:gap-6 md:border-0 md:bg-transparent md:p-0`}>
           {navLinks.map((link) => (
             <li key={link.id}>
-              <a href={`#${link.id}`} aria-current={active === link.id ? 'location' : undefined}
-                onClick={() => { setActive(link.id); setOpen(false); }}
+              <a href={link.href || `#${link.id}`} aria-current={!link.newTab && active === link.id ? 'location' : undefined}
+                target={link.newTab ? '_blank' : undefined}
+                rel={link.newTab ? 'noopener noreferrer' : undefined}
+                aria-label={link.newTab ? `${link.title} (opens in a new tab)` : undefined}
+                onClick={() => { if (!link.newTab) setActive(link.id); setOpen(false); }}
                 className={`block rounded-lg px-3 py-3 text-sm transition-colors md:px-0 md:py-2 ${active === link.id ? 'text-[#c5a6bd]' : 'text-secondary hover:text-white'}`}>
                 {link.title}
               </a>
