@@ -25,13 +25,13 @@ const Navbar = () => {
           {/* <img src={logo} alt="logo" className="w-9 h-9 object-contain"/> */}
           <p className="text-white text-[18px] font-bold cursor-pointer">Sherezade Maqueda</p>
         </Link>
-        <ul className="list-none hidden sm:flex flex-row gap-10">
+        <ul className="list-none hidden sm:flex flex-row gap-4 lg:gap-10">
           {navLinks.map((link) => (
             <li
             key={link.id}
             className={`${
               active === link.title ? "text-white" : "text-secondary"
-            } hover:text-white text-[18px] font-medium cursor-pointer`}
+            } hover:text-white text-[16px] lg:text-[18px] font-medium cursor-pointer`}
             onClick={() => setActive(link.title)}
           >
               <a href={`#${link.id}`}>{link.title}</a>

@@ -8,6 +8,7 @@ import {
   Navbar,
   Works,
   About,
+  Blog,
 } from "./components";
 
 const StarsCanvas = lazy(() => import("./components/canvas/Stars"));
@@ -27,6 +28,7 @@ const App = () => {
         <Project />
         <Works />
         <About />
+        <Blog />
         <div className="relative z-0">
           <Contact />
         </div>

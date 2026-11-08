@@ -10,6 +10,13 @@ I'm a marketing data analytics specialist and ecommerce, CRO and web developer w
 - **Tilt Animations**: Applied to cards in the Expertise and Work sections, the tilt effect adds a dynamic and modern touch to the presentation.
 - **Timeline**: A detailed timeline in the About section that chronicles my personal, professional, and educational journey.
 
+## Blog
+
+The Blog section (`src/components/Blog.jsx`, linked at `#blog`) currently displays
+an editorial introduction and an explicit empty state. It does not contain
+placeholder articles, publish dates, article links or a subscription form.
+Replace the empty-state panel with real entries when articles are available.
+
 ## Technologies Used
 
 - **React**: The primary JavaScript library used to build the user interface.
