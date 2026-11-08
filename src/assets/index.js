@@ -20,7 +20,6 @@ import redux from "./tech/redux.png";
 import tailwind from "./tech/tailwind.png";
 import typescript from "./tech/typescript.png";
 import threejs from "./tech/threejs.svg";
-import spotifind from "./spotifind.png";
 import berlin from "./company/berlin.png";
 import code from "./company/code.svg";
 import groningen from "./company/groningen.png";
@@ -61,7 +60,6 @@ export {
   hamburg,
   madrid,
   carrent,
-  spotifind,
   tripguide,
   lobelokal, 
   reddit,

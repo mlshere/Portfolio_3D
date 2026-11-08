@@ -8,7 +8,6 @@ import {
   reddit,
   instacart,
   rockbuster,
-  spotifind,
 } from "../assets";
 
 export const navLinks = [
@@ -152,28 +151,6 @@ const projects = [
     ],
     image: reddit,
     source_code_link: "https://github.com/mlshere/Reddit-clone",
-    category: ["web development", "all"],
-  },
-  {
-    name: "Spotifind",
-    description:
-      "Web application that enables users to search for songs in Spotify and create list with those songs. It also allows users to add said lists to their Spotify account.",
-    tags: [
-      {
-        name: "react",
-        color: "white",
-      },
-      {
-        name: "restapi",
-        color: "white",
-      },
-      {
-        name: "css",
-        color: "white",
-      },
-    ],
-    image: spotifind,
-    source_code_link: "https://github.com/mlshere/spotifind",
     category: ["web development", "all"],
   },
   {
