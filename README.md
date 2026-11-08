@@ -7,7 +7,7 @@ I'm a marketing data analytics specialist and ecommerce, CRO and web developer w
 - **Work-first layout**: A compact hero with work and contact links leads into CMS work, independent projects, expertise, about, blog and contact.
 - **Accessible navigation**: Mobile menu, keyboard-accessible project filters, visible focus states and a skip link.
 - **CMS showcase**: Shopify and WordPress projects with responsive WebP screenshots, contribution summaries and live links.
-- **Restrained motion**: A lazy-loaded Three.js background trails the pointer with white squares, folds into a line on idle, then settles into a square mosaic. It renders on demand and stops when settled; touch and reduced-motion users see a static mosaic. Card tilt is not loaded.
+- **Cosmic background**: A lazy-loaded Three.js starfield rotates gently behind the portfolio without following the pointer. Reduced-motion users see static stars, and animation pauses in hidden tabs. Card tilt is not loaded.
 - **Compact experience**: Current work is shown first; earlier experience remains available in an expandable section.
 - **Contact feedback**: Required fields, inline success/error messages and duplicate-submission protection.
 
@@ -21,15 +21,12 @@ It does not contain placeholder
 articles, publish dates or a subscription form. Add real entries and update the
 published count when articles are available.
 
-The square background uses damped motion, a loose wind-driven trail and staggered
-row assembly for a gentler idle transition. It still stops rendering when settled.
-
 ## Technologies Used
 
 - **React**: The primary JavaScript library used to build the user interface.
 - **Tailwind CSS**: For styling, providing a utility-first CSS framework.
 - **Framer Motion**: For animations, adding smooth transitions and visual appeal.
-- **Three.js**: Lazy-loaded for the pointer-driven square background on devices with a fine pointer and no reduced-motion preference.
+- **Three.js**: Lazy-loaded for the cosmic star background, with reduced-motion support.
 - **EmailJS**: For handling the contact form and sending emails directly from the portfolio.
 - **React-Tilt**: Retained for optional legacy components; the main cards use restrained CSS transitions.
 

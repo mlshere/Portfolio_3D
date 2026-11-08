@@ -1,6 +1,6 @@
 import { MotionConfig } from "framer-motion";
 import { Head } from "vite-react-ssg";
-import SquareBackground from "./components/SquareBackground";
+import CosmosBackground from "./components/CosmosBackground";
 import {
   Expertise,
   Contact,
@@ -26,7 +26,7 @@ const App = () => {
         <meta name="twitter:url" content="https://mlsherezade.com/" />
       </Head>
     <div className="relative z-0 bg-primary">
-      <SquareBackground />
+      <CosmosBackground />
       <a href="#main-content" className="skip-link">Skip to content</a>
         <Navbar />
       <main id="main-content">
