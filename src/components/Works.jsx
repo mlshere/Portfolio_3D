@@ -2,14 +2,17 @@ import { useState } from 'react'
 import { motion } from 'framer-motion';
 
 import { styles } from '../styles';
-import { github } from '../assets';
+import { github, web } from '../assets';
 import { SectionWrapper } from '../hoc';
 import { textVariant, fadeIn } from '../utils/motion';
 import { projects, filters } from '../constants';
 import Tilt from './ClientTilt';
 
 
-const ProjectCard = ({ index, name, description, tags, image, source_code_link, }) => {
+const ProjectCard = ({ index, name, description, tags, image, source_code_link, project_link, }) => {
+  const projectUrl = project_link || source_code_link;
+  const isLiveProject = Boolean(project_link);
+
   return (
     <motion.div variants={fadeIn("right", "spring", 0.5 * index, 0.75)} initial={false} animate="show">
       <Tilt
@@ -21,23 +24,29 @@ const ProjectCard = ({ index, name, description, tags, image, source_code_link, 
         className="bg-black-gradient p-5 rounded-2xl sm:w-[360px] w-full border-2 border-secondary"
       >
         <div className="relative w-full h-[230px]">
-          <img 
-            src={image}
-            alt={name}
-            className="w-full h-full object-cover rounded-2xl"
-          />
+          {image ? (
+            <img
+              src={image}
+              alt={name}
+              className="w-full h-full object-cover rounded-2xl"
+            />
+          ) : (
+            <div className="w-full h-full rounded-2xl bg-gradient-to-br from-[#1d1836] via-[#151030] to-[#090325] flex items-center justify-center p-6 text-center">
+              <span className="text-white font-bold text-2xl">{name}</span>
+            </div>
+          )}
 
           <div className="absolute inset-0 flex justify-end m-3 card-img_hover" >
             <a
-            href={source_code_link}
+            href={projectUrl}
             target="_blank"
             rel="noopener noreferrer"
-            aria-label={`View ${name} source code on GitHub`}
+            aria-label={isLiveProject ? `Visit ${name} website` : `View ${name} source code on GitHub`}
             className="black-gradient w-10 h-10 rounded-full flex justify-center items-center cursor-pointer" 
             >
               <img 
-                src={github}
-                alt={`${name} source code on GitHub`}
+                src={isLiveProject ? web : github}
+                alt={isLiveProject ? `${name} website` : `${name} source code on GitHub`}
                 className="w-1/2 h-1/2"
                 />
             </a>
