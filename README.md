@@ -50,7 +50,48 @@ To run this portfolio locally, follow these steps:
 
 5. **Visit the portfolio:**
    
-   Open your browser and navigate to `http://localhost:3000` to see the portfolio in action.
+   Open your browser and navigate to `http://localhost:5173` to see the portfolio in action.
+
+## CI/CD
+
+Two GitHub Actions workflows are included in `.github/workflows/`.
+
+### `ci.yml` — Continuous Integration
+
+Runs automatically on **every push and every pull request** to any branch.
+
+| Step | Command |
+|------|---------|
+| Install dependencies | `npm ci` |
+| Lint | `npm run lint` |
+| Build | `npm run build` |
+
+The workflow fails fast: if lint or build fails, the PR cannot pass review.
+
+### `deploy.yml` — Deploy to Hostinger
+
+Runs automatically when code is merged to the **`main`** branch.  
+It builds the project and uploads the `dist/` folder to Hostinger via FTP.
+
+#### Required GitHub Secrets
+
+Before the deploy workflow can run you must add the following secrets in  
+**Settings → Secrets and variables → Actions → New repository secret**:
+
+| Secret name | Where to find it |
+|-------------|-----------------|
+| `HOSTINGER_FTP_SERVER` | Hostinger hPanel → Hosting → FTP Accounts → FTP hostname (e.g. `files.hostinger.com`) |
+| `HOSTINGER_FTP_USERNAME` | Hostinger hPanel → Hosting → FTP Accounts → Username |
+| `HOSTINGER_FTP_PASSWORD` | The password you set when creating the FTP account |
+| `HOSTINGER_FTP_SERVER_DIR` | *(optional)* Remote directory, defaults to `/public_html/` |
+
+#### Manual steps to finish deployment
+
+1. Log in to [hPanel](https://hpanel.hostinger.com/) and open **Hosting → FTP Accounts**.
+2. Create (or note) an FTP account and copy the hostname, username, and password.
+3. Add the four secrets listed above to this GitHub repository.
+4. Push a commit to `main` — the deploy workflow will build and upload automatically.
+5. If Hostinger requires the `dist/` assets to live in a subfolder (e.g. `/public_html/portfolio/`), update `HOSTINGER_FTP_SERVER_DIR` accordingly.
 
 ## Future Enhancements
 

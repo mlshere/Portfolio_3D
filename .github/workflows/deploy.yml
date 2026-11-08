@@ -1,0 +1,59 @@
+name: Deploy to Hostinger
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    name: Build & Deploy
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: "npm"
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build
+        run: npm run build
+
+      # ── FTP deployment to Hostinger ──────────────────────────────────────────
+      # This step uploads the contents of the dist/ folder to your Hostinger
+      # server via FTP. You must add the following secrets to your repository
+      # (Settings → Secrets and variables → Actions → New repository secret):
+      #
+      #   HOSTINGER_FTP_SERVER   – FTP hostname, e.g. files.hostinger.com
+      #   HOSTINGER_FTP_USERNAME – FTP username from Hostinger control panel
+      #   HOSTINGER_FTP_PASSWORD – FTP password from Hostinger control panel
+      #
+      # Set HOSTINGER_FTP_SERVER_DIR to the remote directory where files should
+      # be uploaded. If this secret is not set, /public_html/ is used by default.
+      # ─────────────────────────────────────────────────────────────────────────
+      - name: Resolve FTP server directory
+        id: ftp_dir
+        env:
+          SERVER_DIR: ${{ secrets.HOSTINGER_FTP_SERVER_DIR }}
+        run: echo "path=${SERVER_DIR:-/public_html/}" >> "$GITHUB_OUTPUT"
+
+      - name: Deploy via FTP
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+        with:
+          server: ${{ secrets.HOSTINGER_FTP_SERVER }}
+          username: ${{ secrets.HOSTINGER_FTP_USERNAME }}
+          password: ${{ secrets.HOSTINGER_FTP_PASSWORD }}
+          local-dir: ./dist/
+          server-dir: ${{ steps.ftp_dir.outputs.path }}
+          exclude: |
+            **/.git*
+            **/.git*/**

@@ -1,19 +1,4 @@
 import {
-  mobile,
-  backend,
-  creator,
-  web,
-  javascript,
-  typescript,
-  html,
-  css,
-  reactjs,
-  redux,
-  tailwind,
-  nodejs,
-  mongodb,
-  git,
-  figma,
   portfolio,
   berlin,
   code,
@@ -24,8 +9,6 @@ import {
   instacart,
   rockbuster,
   spotifind,
-  tripguide,
-  threejs,
 } from "../assets";
 
 export const navLinks = [
