@@ -7,7 +7,7 @@ I'm a marketing data analytics specialist and ecommerce, CRO and web developer w
 - **Work-first layout**: A compact hero with work and contact links leads into CMS work, independent projects, expertise, about, blog and contact.
 - **Accessible navigation**: Mobile menu, keyboard-accessible project filters, visible focus states and a skip link.
 - **CMS showcase**: Shopify and WordPress projects with responsive WebP screenshots, contribution summaries and live links.
-- **Restrained motion**: Subtle transitions respect reduced-motion preferences. Decorative WebGL and card tilt are not loaded.
+- **Restrained motion**: A lazy-loaded Three.js background trails the pointer with white squares, folds into a line on idle, then settles into a square mosaic. It renders on demand and stops when settled; touch and reduced-motion users see a static mosaic. Card tilt is not loaded.
 - **Compact experience**: Current work is shown first; earlier experience remains available in an expandable section.
 - **Contact feedback**: Required fields, inline success/error messages and duplicate-submission protection.
 
@@ -23,7 +23,7 @@ Replace the empty-state panel with real entries when articles are available.
 - **React**: The primary JavaScript library used to build the user interface.
 - **Tailwind CSS**: For styling, providing a utility-first CSS framework.
 - **Framer Motion**: For animations, adding smooth transitions and visual appeal.
-- **Three.js**: Retained for the optional canvas components; not loaded by the main portfolio.
+- **Three.js**: Lazy-loaded for the pointer-driven square background on devices with a fine pointer and no reduced-motion preference.
 - **EmailJS**: For handling the contact form and sending emails directly from the portfolio.
 - **React-Tilt**: Retained for optional legacy components; the main cards use restrained CSS transitions.
 

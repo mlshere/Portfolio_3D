@@ -1,4 +1,5 @@
 import { MotionConfig } from "framer-motion";
+import SquareBackground from "./components/SquareBackground";
 import {
   Expertise,
   Contact,
@@ -14,6 +15,7 @@ const App = () => {
   return (
     <MotionConfig reducedMotion="user">
     <div className="relative z-0 bg-primary">
+      <SquareBackground />
       <a href="#main-content" className="skip-link">Skip to content</a>
         <Navbar />
       <main id="main-content">
