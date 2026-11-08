@@ -1,6 +1,5 @@
 import { useState, useRef } from 'react';
 import { motion } from 'framer-motion';
-import emailjs from '@emailjs/browser'
 
 import { styles } from '../styles';
 import { SectionWrapper } from '../hoc'
@@ -23,37 +22,36 @@ const Contact = () => {
     })
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
 
-    emailjs.send(
-      "service_u4aqq4g",
-      "template_o5fnkrj",
-      {
-        from_name: form.name,
-        to_name: 'Sherezade',
-        from_email: form.email,
-        to_email: 'mlsherezde@gmail.com',
-        message: form.message,
-      },
-      'wH57SuyDlCbAc4GPR'
-    )
-    .then(() => {
-      setLoading(false);
+    try {
+      const { default: emailjs } = await import('@emailjs/browser');
+      await emailjs.send(
+        "service_u4aqq4g",
+        "template_o5fnkrj",
+        {
+          from_name: form.name,
+          to_name: 'Sherezade',
+          from_email: form.email,
+          to_email: 'mlsherezde@gmail.com',
+          message: form.message,
+        },
+        'wH57SuyDlCbAc4GPR'
+      );
       alert('Thank you for your message. I will get back to you soon!');
       setForm({
         name: '',
         email: '',
         message: '',
       })
-    })
-      .catch((error) => {
-      setLoading(false);
-      console.log(error);
+    } catch (error) {
+      console.error(error);
       alert('Something went wrong. Please try again.');
-      
-    });
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -64,7 +62,7 @@ const Contact = () => {
         className='flex-1 bg-[#070806] rounded-2xl border-2 border-secondary p-8'
         >
           <p className={styles.sectionSubText}>Get in touch</p>
-          <h3 className={styles.sectionHeadText}>Contact</h3>
+          <h2 className={styles.sectionHeadText}>Contact</h2>
         <form 
           ref={formRef} 
           onSubmit={handleSubmit} 
@@ -121,4 +119,3 @@ const Contact = () => {
 }
 
 export default SectionWrapper(Contact, "contact");
-

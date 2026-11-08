@@ -8,7 +8,7 @@ import { lobelokal } from '../assets';
 const ProjectBox = ({ index }) => (
   <motion.div 
       variants={fadeIn("right", "spring", 0.5 * index, 0.75)}
-      initial="hidden"
+      initial={false}
       animate="show"
       className="flex flex-col items-start justify-between gap-4 my-8 px-8"
       >
@@ -41,7 +41,7 @@ const Project = () => {
     <>
       <motion.div variants={textVariant()}>
         <h2 className={styles.sectionHeadText}>My Work</h2>
-        <p className={styles.sectionSubText}>After a decade in the kitchen industry, I discovered web development while redesigning a website for the Lobe Space building in 2022. This experience started my passion for programming, leading me to pursue a new career in web and software development.</p>
+        <p className={styles.sectionSubText}>I bring together data, experimentation and development to improve ecommerce experiences. My work spans A/B testing, martech integrations, automation and cloud, with a focus on practical implementation.</p>
       </motion.div>
       <ProjectBox index={1}/>
     </>
