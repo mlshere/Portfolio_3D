@@ -4,7 +4,7 @@ const Hero = () => (
   <section className="relative mx-auto max-w-7xl px-6 pb-16 pt-36 sm:px-16 sm:pb-24 sm:pt-44">
     <p className={styles.sectionSubText}>Development · Data · Experimentation</p>
     <h1 className={`${styles.heroHeadText} max-w-4xl`}>
-      Ecommerce thinking.<br />
+      Analytic thinking.<br />
       <span className="text-[#c5a6bd]">Technical execution.</span>
     </h1>
     <p className={`${styles.heroSubText} mt-6 max-w-2xl`}>
